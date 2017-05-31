@@ -4,6 +4,9 @@ import datetime
 import time
 import csv
 
+
+# Comentario com mudanças para GIT UHE
+
 # Abre o histórico de geração e procura a última data com dados de medição
 with open(r'.\hist.csv', newline='') as csvFile:
     csvReader = csv.reader(csvFile, delimiter=';')
