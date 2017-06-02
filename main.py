@@ -7,15 +7,15 @@ import csv
 # Comentario com mudanças para GIT UHE
 
 # Abre o histórico de geração e procura a última data com dados de medição
-# with open(r'.\hist_hidraulicas.csv', newline='') as csvFile:
-#     csvReader = csv.reader(csvFile, delimiter=';')
-#     lastDate = list(csvReader)[-1][-0]
-#     lastDate = datetime.datetime.strptime(lastDate, "%d/%m/%Y")
-# csvFile.close()
+with open(r'.\hist_hidraulicas.csv', newline='') as csvFile:
+    csvReader = csv.reader(csvFile, delimiter=';')
+    lastDate = list(csvReader)[-1][-0]
+    lastDate = datetime.datetime.strptime(lastDate, "%d/%m/%Y")
+csvFile.close()
 
 # Última dada com registo
-# d1 = lastDate.date()
-d1 = datetime.date(2017, 5, 16)
+d1 = lastDate.date()
+# d1 = datetime.date(2017, 5, 16)
 
 # Procura no site do ONS as medições mais recentes
 reqDate = requests.get('http://www.ons.org.br/resultados_operacao/SDRO/Diario/topo.htm')
@@ -27,7 +27,7 @@ textDate = soupDate.find_all('option')
 textDate = textDate[1].get_text()
 textDate = datetime.datetime.strptime(textDate[-10:], '%d/%m/%Y')
 d2 = textDate.date()
-d2 = datetime.date(2017, 5, 30)
+# d2 = datetime.date(2017, 5, 30)
 delta = d2 - d1
 dates = []
 
@@ -36,7 +36,7 @@ print('A última data de medições no site do ONS é: ', d2)
 
 if input('Importar útimas medições? (S/N) ') == ('S' or 's'):
 
-    for i in range(0, delta.days + 1):
+    for i in range(1, delta.days + 1):
         dates.append((d1 + datetime.timedelta(days=i)).strftime("%Y_%m_%d"))
 
     # Trechos da url para data scraping
@@ -58,16 +58,22 @@ if input('Importar útimas medições? (S/N) ') == ('S' or 's'):
         res.encoding = 'utf8'
 
         soup = bs4.BeautifulSoup(res.text, 'html.parser')
-        text = soup.find_all('tr')
+
+        # text = soup.find_all('tr')
+        text = soup.find_all('tbody')
+        text = text[6]
+        text = text.find_all('tr')
 
         i = 0
         n = datetime.datetime.strptime(n, "%Y_%m_%d").date().strftime("%d/%m/%Y")
+
         # with open(r'.\hist.csv', 'a', newline='') as csvFile:
         with open(r'.\hist_hidraulicas.csv', 'a', newline='') as csvFile:
             csvWriter = csv.writer(csvFile, delimiter=';')
             # Valores até 15 de Maio de 2017 começavam no índice 11
             # for value in range(11, len(text) - 1):
-            for value in range(19, len(text) - 1):
+            # for value in range(19, len(text) - 1):
+            for value in range(1, len(text) - 1):
                 linha = text[value].get_text().strip().replace(' \n\n', ';').replace('\n', ';')
                 linha = linha.split(';')
                 linha.insert(0, n)
