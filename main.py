@@ -3,7 +3,8 @@ import bs4
 import datetime
 import time
 import csv
-import pandas
+import pandas as pd
+import numpy as np
 
 # Comentario com mudanças para GIT UHE
 
