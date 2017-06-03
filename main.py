@@ -3,6 +3,7 @@ import bs4
 import datetime
 import time
 import csv
+import pandas
 
 # Abre o histórico de geração e procura a última data com dados de medição
 with open(r'.\hist.csv', newline='') as csvFile:
