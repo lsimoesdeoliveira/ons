@@ -1,0 +1,54 @@
+import pandas as pd
+from ggplot import *
+df = pd.read_csv("D:\Users\lucas\Documents\Python\ons\hist.txt", sep = ';', decimal = ',')
+df = pd.read_csv(u"D:\Users\lucas\Documents\Python\ons\hist.txt", sep = ';', decimal = ',')
+df = pd.read_csv("D:\\Users\\lucas\\Documents\\Python\\ons\\hist.txt", sep = ';', decimal = ',')
+df
+pd.datetime?
+pd.datetime(df['Data'])
+pd.to_datetime(df['Data'])
+df['Data'] = pd.to_datetime(df['Data'])
+df
+df['GWh'][df['Sistema'] = 'Nordeste']
+df['GWh'][df['Sistema'] == 'Nordeste']
+df['GWh'][df['Sistema'] == 'Nordeste'].plot.hist()
+plt.show()
+show()
+import matplotlib.pyplot as plt
+df['GWh'][df['Sistema'] == 'Nordeste'].plot.hist()
+plt.show()
+df['GWh'][df['Sistema'] == 'Nordeste'].head(4)
+df[df['Sistema'] == 'Nordeste'].head(4)
+df['Data'].year
+df2 = df
+df2['Data2'] = df2['Data']
+df2.head()
+df2['Data2'] = df2['Data'].year()
+df2['Data2'] = df.Data.year()
+df2['Data2'] = df2.Data.year
+df2.Data
+df2.Data.
+df2.Data.0
+df2.Data[0]
+df2.Data[0].year()
+df2.Data[0].year
+df2[
+]
+df2
+df2['Data2'] = df2['Data'].dt.year
+df2
+df['GWh'][df['Sistema'] == 'Nordeste'].head(4)
+df[df['Sistema'] == 'Nordeste']
+df[df['Sistema'] == 'Nordeste'][df['Data2'] == 2017]
+df[df['Sistema'] == 'Nordeste'][df['Data2'] == 2017].plot.hist()
+plt.show()
+df['GWh'][df['Sistema'] == 'Nordeste'][df['Data2'] == 2017].plot.hist()
+plt.show()
+df['GWh'][df['Sistema'] == 'Nordeste'][df['Data2'] == 2016].plot.hist()
+plt.show()
+%save
+%save?
+%save teste
+%save teste.txt
+%save 'teste.txt'
+%history
