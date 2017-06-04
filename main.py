@@ -4,7 +4,6 @@ import datetime
 import time
 import csv
 
-# branch geração UHE
 
 # Complementos de dados a serem buscados
 #    # complement = '/HTML/10_ProducaoEolicaUsina.html'      # (Endereço usado a partir de 16 de Maio de 2017)
