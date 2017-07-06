@@ -3,7 +3,9 @@ import bs4
 import datetime
 import csv
 
-# branch geração UHE
+# TO DO:
+# Create the option to update all files at once
+
 
 # Final da URL de dados a serem buscados
 #    # URL_END = '/HTML/10_ProducaoEolicaUsina.html'      # (Endereço usado a partir de 16 de Maio de 2017)
